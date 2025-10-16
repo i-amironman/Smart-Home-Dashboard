@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smart Home Dashboard Design System */
+
+@layer base {
+  :root {
+    /* Light Theme - Soft Pastels */
+    --background: 220 70% 97%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --card-glass: 0 0% 100% / 0.7;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 247 84% 57%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 247 84% 70%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 274 84% 67%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 247 84% 57%;
+
+    --radius: 0.5rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-bg-light: linear-gradient(135deg, hsl(220 70% 97%), hsl(274 84% 95%));
+    --gradient-bg-dark: linear-gradient(135deg, hsl(222 84% 4%), hsl(247 40% 8%));
+    
+    /* Glass Effects */
+    --glass-bg: hsla(var(--card-glass));
+    --glass-border: hsla(var(--border) / 0.2);
+    --glass-shadow: 0 8px 32px 0 hsla(var(--foreground) / 0.1);
+    
+    /* Device Status Colors */
+    --device-on: 142 76% 36%;
+    --device-off: 0 0% 40%;
+    --device-warning: 38 92% 50%;
+    
+    /* Shadows */
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-glow: 0 0 40px hsla(var(--primary) / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Theme - Blue Purple Gradients */
+    --background: 222 84% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 50% 8%;
+    --card-foreground: 210 40% 98%;
+    --card-glass: 0 0% 100% / 0.05;
+
+    --popover: 222 50% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 247 84% 57%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 247 84% 70%;
+
+    --secondary: 222 32% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 32% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 274 84% 67%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222.2 84% 4.9%;
+
+    --border: 222 32% 20%;
+    --input: 222 32% 15%;
+    --ring: 247 84% 57%;
+
+    --gradient-bg-light: linear-gradient(135deg, hsl(222 84% 4%), hsl(247 40% 8%));
+    --gradient-bg-dark: linear-gradient(135deg, hsl(222 84% 4%), hsl(247 40% 8%));
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 40px hsla(var(--primary) / 0.4);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-bg-light);
+    min-height: 100vh;
+  }
+
+  .dark body {
+    background: var(--gradient-bg-dark);
+  }
+}
+
+@layer components {
+  /* Glass Card Component */
+  .glass-card {
+    @apply backdrop-blur-md border border-white/20;
+    background: var(--glass-bg);
+    box-shadow: var(--shadow-glass);
+    border-radius: 16px;
+  }
+
+  /* Device Status Indicators */
+  .device-on {
+    @apply bg-success text-success-foreground;
+    box-shadow: 0 0 20px hsla(var(--success) / 0.4);
+  }
+
+  .device-off {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  .device-warning {
+    @apply bg-warning text-warning-foreground;
+    box-shadow: 0 0 20px hsla(var(--warning) / 0.4);
+  }
+
+  /* Animated Toggle */
+  .toggle-switch {
+    @apply relative inline-flex h-6 w-11 items-center rounded-full transition-colors;
+    background: var(--gradient-primary);
+  }
+
+  .toggle-switch.off {
+    @apply bg-muted;
+  }
+
+  .toggle-knob {
+    @apply inline-block h-4 w-4 transform rounded-full bg-white transition-transform;
+  }
+
+  .toggle-knob.on {
+    @apply translate-x-6;
+  }
+}
